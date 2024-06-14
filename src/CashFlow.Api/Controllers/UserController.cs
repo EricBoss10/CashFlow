@@ -1,4 +1,5 @@
-﻿using CashFlow.Communication.Requests;
+﻿using CashFlow.Application.UseCases.Users.Register;
+using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +13,10 @@ namespace CashFlow.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ResponseUserJson), StatusCodes.Status410Gone)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Register([FromServices],
+        public async Task<IActionResult> Register([FromServices] IRegisterUserUseCase useCase,
             [FromBody] RequestRegisterUserJson request)
         {
-
+            var response = await useCase.Execute(request);
             return Created(string.Empty, response);
         }
     }
