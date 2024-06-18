@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashFlow.Exception", "src\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashFlow.infrastructure", "src\CashFlow.infrastructure\CashFlow.infrastructure.csproj", "{11283DDF-39ED-4A39-99F0-C1E1BC8EA011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{816940AE-8391-4B28-AE4F-1C0DF82EF5FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{816940AE-8391-4B28-AE4F-1C0DF82EF5FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestsUtilities", "tests\ComonTestsUtilities\CommonTestsUtilities.csproj", "{830813BF-6D4F-417F-8E89-251370216BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTestsUtilities", "tests\ComonTestsUtilities\CommonTestsUtilities.csproj", "{830813BF-6D4F-417F-8E89-251370216BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\UseCases.Test\UseCases.Test.csproj", "{10F314EE-0730-4D80-A768-E682EE118508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{830813BF-6D4F-417F-8E89-251370216BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830813BF-6D4F-417F-8E89-251370216BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{830813BF-6D4F-417F-8E89-251370216BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F314EE-0730-4D80-A768-E682EE118508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F314EE-0730-4D80-A768-E682EE118508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F314EE-0730-4D80-A768-E682EE118508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F314EE-0730-4D80-A768-E682EE118508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{11283DDF-39ED-4A39-99F0-C1E1BC8EA011} = {E2D2B0A2-AD7F-42C2-8453-E34788642BB4}
 		{816940AE-8391-4B28-AE4F-1C0DF82EF5FC} = {48CCBA8B-95AF-404E-A0BD-9D45BE6353DF}
 		{830813BF-6D4F-417F-8E89-251370216BEC} = {48CCBA8B-95AF-404E-A0BD-9D45BE6353DF}
+		{10F314EE-0730-4D80-A768-E682EE118508} = {48CCBA8B-95AF-404E-A0BD-9D45BE6353DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D96F36C0-E39C-443D-B3D7-D889A916C078}
