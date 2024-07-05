@@ -1,8 +1,9 @@
 ﻿using CashFlow.Exception;
 using CommonTestsUtilities.Requests;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
+using System.Globalization;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -36,11 +37,17 @@ public class RegisterUserTest: IClassFixture<CustomWebApplicationFactory>
         response.RootElement.GetProperty("token").GetString().Should().NotBeNullOrEmpty();
     }
 
-    [Fact]
-    public async Task Error_Empty_Name()
+    [Theory]
+    [InlineData("fr")]
+    [InlineData("en")]
+    [InlineData("pt-BR")]
+    [InlineData("pt-PT")]
+    public async Task Error_Empty_Name(string cultureInfo)
     {
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Name = string.Empty;
+
+        _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(cultureInfo));
 
         var result = await _httpClient.PostAsJsonAsync(METHOD, request);
 
@@ -50,8 +57,10 @@ public class RegisterUserTest: IClassFixture<CustomWebApplicationFactory>
 
         var response = await JsonDocument.ParseAsync(body);
 
-        var errors = response.RootElement.GetProperty("errorMessage").EnumerateArray();
+        var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray();
 
-        errors.Should().HaveCount(1).And.Contain(error => error.GetString()!.Equals(ResourceErrorMessages.NAME_EMPTY));
+        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("NAME_EMPTY", new CultureInfo(cultureInfo));
+
+        errors.Should().HaveCount(1).And.Contain(error => error.GetString()!.Equals(expectedMessage));
     }
 }
